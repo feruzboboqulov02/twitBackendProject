@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "ts-node-dev --respawn --transpile-only --exit-child --compiler-options '{\"module\":\"commonjs\"}' -r tsconfig-path/register server.ts"
   },
   "keywords": [],
   "author": "",
@@ -12,9 +12,14 @@
   "type": "module",
   "dependencies": {
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.29",
+    "nodemon": "^3.1.10",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.8.3"
   }
 }
