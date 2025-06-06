@@ -4,12 +4,11 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --exit-child --compiler-options '{\"module\":\"commonjs\"}' -r tsconfig-path/register server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only --exit-child --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\" -r tsconfig-paths/register server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
