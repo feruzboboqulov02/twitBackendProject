@@ -1,6 +1,7 @@
 import { Request, Response, Router } from 'express';
 import { TwitService } from './twit.service';
 import { authMiddleware } from '../auth.middleware';
+import { createTwitDto } from './twit.dto';
 
 const router = Router();
 const twitService = new TwitService();
@@ -8,8 +9,9 @@ const twitService = new TwitService();
 
 
 router.post('/', authMiddleware, (req:Request, res:Response) => {
-    if(req.body?.description?.length < 1){
-         res.status(400).json({ error: 'Description is required' });
+    const validation = createTwitDto.safeParse(req.body);
+    if(!validation.success) {
+         res.status(400).json({ error: validation.error.errors });
          return
     }
     const twit = twitService.createTwit(req.body);
